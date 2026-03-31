@@ -1,0 +1,904 @@
+\documentclass[output=paper,colorlinks,citecolor=brown
+% ,hidelinks
+% showindex
+]{langscibook}
+\author{Lukáš Žoha\orcid{0000-0002-4736-195X}\affiliation{Masaryk University}
+}
+% REPLACE THE ABOVE WITH YOU AND YOUR CO-AUTHORS, YOUR AFFILIATIONS, AND YOUR ORCID NUMBERS
+% rules for affiliation: If there's an official English version, use that (find out on the official website of the university); if not, use the original
+% orcid doesn't appear printed; it's metainformation used for later indexing
+
+% \SetupAffiliations{mark style=none}
+% comment in (i.e. remove the % sign at the beginning of the line) the above line if you are a single author or all authors have the same affiliation
+
+\lehead{Žoha}
+% in case the running head with authors exceeds one line (which is the case in this example document), use one the above method to turn it into a single line; otherwise comment the line above out with % and ignore it
+
+\title{From Pseudo-partitives to High Counting: Morphological Containment in Slavic languages}
+% REPLACE THE ABOVE WITH YOUR PAPER TITLE
+% provide a shorter version of your title in case it doesn't fit a single line in the running head
+% in this form: \title[short title]{full title}
+
+\abstract{This paper investigates morphological syncretism in quantity expressions across Slavic languages, focusing on pseudo-partitive, low-counting, and high-counting phrases. Based on data from Czech, Bulgarian, and Ukrainian, we identify three robust patterns -- AAB, ABB, and ABC -- and argue that they reflect a containment hierarchy: pseudo-partitive < low-counting < high-counting.
+
+Using nanosyntactic tools, we present structures of these patterns from a single, hierarchically ordered feature sequence. Each morphological form lexicalizes a contiguous span of this sequence, and syncretism arises when multiple contexts share structure. The analysis accounts for attested variation and systematically rules out unattested patterns, such as ABA, on structural grounds.
+
+We conclude that quantity expressions differ not only semantically but also in syntactic size and complexity. The proposed feature hierarchy and lexicalization principles provide a principled account of cross-linguistic and language-internal variation, contributing to our understanding of how morphosyntactic structure shapes nominal morphology.
+
+\keywords{syncretism, pseudo-partitives, counting phrases, nanosyntax}
+}
+
+\input{localpackages.tex}
+\input{localcommands.tex}
+\bibliography{localbibliography}
+
+\IfFileExists{../localcommands.tex}{
+   \addbibresource{../localbibliography.bib}
+   \input{../localpackages}
+   \input{../localcommands}
+   \input{../localhyphenation}
+   \boolfalse{bookcompile}
+}{}
+
+\togglepaper[42]
+%the chapter number will be provided by volume editors; for now keep this way
+
+\begin{document}
+\maketitle
+
+%\input{template-osl.tex}
+% Just comment out the line above (place % at its beginning) and start writing your own document
+% WRITE DIRECTLY HERE, INTO main.tex, DO NOT START YOUR OWN tex FILE!
+
+% START WRITING HERE
+
+\section{Introduction}
+
+Expressions of quantity in natural language commonly exhibit a distinction between mass and count interpretation. This distinction is not limited to the domain of semantics but is frequently encoded morphologically, particularly within the nominal phrase. Cross-linguistic evidence shows that such interaction between semantic and grammatical encoding of quantity is systematic \citep{Doetjes2017}. In classifier languages, for instance, mass--count distinctions correlate with the presence of overt classifier morphology \citep{allan1977}. In inflectionally rich languages, such as those of the Slavic family, morphological marking in partitive and counting contexts provides insight into the underlying structure of quantity expressions.
+
+Slavic languages offer a particularly instructive setting for exploring these issues. Here, quantity expressions fall at least into three morphosyntactic types: 
+
+\begin{itemize}
+  \item \textbf{Pseudo-partitive phrases} (e.g., \textit{a piece of peach}) denote vague, non-individuated quantities and involve a measure noun followed by a bare nominal.
+  \item \textbf{Low-counting phrases} (e.g., \textit{two peaches}) typically involve numerals 2--4 and behave syntactically as agreeing nominal expressions.
+  \item \textbf{High-counting phrases} (e.g., \textit{five peaches}) involve numerals 5 and above and are syntactically closer to quantificational expressions.
+\end{itemize}
+
+This paper focuses on the morphological syncretism patterns that arise between these three types of quantity expressions. In particular, Slavic languages display robust regularities in how forms are distributed across the three contexts. Certain syncretism patterns recur across the family, while others are unattested. The following section introduces the typology of these patterns, focusing on the contrast between pseudo-partitive, low-counting, and high-counting structures; their syntactic and semantic status will be revisited in Section~\ref{zoha:sec:types}.
+
+Three cross-context syncretism patterns are attested with high frequency in the morphological marking of quantity expressions: AAB, ABB, and ABC (Table~\ref{zoha:tab:patterns}).\footnote{While the ABC pattern does not involve syncretism in the strict sense, it is included here as a relevant comparative pattern, since its structure is fully distinct across contexts.}
+These patterns are not accidental; rather, they reflect an underlying structural organization of quantity expressions. In particular, they point toward a hierarchical relationship among pseudo-partitive, low-counting, and high-counting phrases, where each successive type builds on the structure of the previous one. While this proposal is developed in detail in the following section, the typology of syncretism already offers a first indication of how these phrase types relate to each other.
+
+\begin{table}
+\begin{tabularx}{0.6\textwidth}{cccc}
+\lsptoprule
+{Pseudo-partitive} & \multicolumn{2}{c}{Counting}\\
+{}& {Low}&{High}\\
+\midrule
+\cellcolor[gray]{0.9}A & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}A} & \cellcolor[gray]{0.8}B\\[.5ex]
+\addlinespace[1pt]
+\multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}A} & \cellcolor[gray]{0.8}B & \cellcolor[gray]{0.8}B& productive\\[.5ex]
+\addlinespace[1pt]
+\multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}A} & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.8}B} & \cellcolor[gray]{0.7}C\\[.5ex]
+\midrule
+\cellcolor[gray]{0.9}A & \cellcolor[gray]{0.9}A & \cellcolor[gray]{0.9}A & marginal\\[.5ex]
+\midrule
+\multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}A} & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.8}B} & \cellcolor[gray]{0.9}A & not attested\\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Patterns across Slavic languages}
+\label{zoha:tab:patterns}
+\end{table}
+
+The table distinguishes three categories of patterns: productive, marginal, and not attested. 
+
+Among the attested patterns, three configurations recur most robustly across Slavic: AAB, ABB, and ABC. In the AAB pattern, the pseudo-partitive and low-counting contexts are syncretic, with high-counting realized by a distinct form. The ABB pattern shows syncretism between low- and high-counting, with the pseudo-partitive forming a separate morphological class. In the ABC pattern, each context receives a distinct morphological exponent. While this pattern is less common, it is robustly attested and plays a crucial role in identifying the structure of the underlying hierarchy.
+
+Not all logically possible patterns are attested. In particular, the ABA pattern — where pseudo-partitive and high-counting are syncretic to the exclusion of low-counting — is, with few exceptions, systematically absent.\footnote{One systematic exception is Polish, where certain feminine nouns (e.g., \textit{pomarańcza} ‘orange’) exhibit an ABA pattern: the genitive singular and genitive plural share the same suffix /-y/, while the intervening nominative plural form uses a different suffix /-e/. This results in syncretism between the pseudo-partitive and high-counting contexts, skipping the low-counting one. A full nanosyntactic analysis of this and related Polish patterns (AAB, ABC, ABA) is provided in \citet{Zoha2025Polish}.}
+The AAA pattern, in which all three contexts receive the same form, is rare and generally limited to specific morphological classes. One such case is the Czech paradigm based on \textit{stavení} `building', which shows uniform morphology across the three contexts; further discussion and examples are provided in \citet{Zoha2025Olinco}. These gaps in the typology suggest that syncretism is not unconstrained but reflects deeper structural relations among the three phrase types.
+
+This distribution of patterns supports a hierarchical containment among the three phrase types: pseudo-partitive < low-counting < high-counting. Under this view, each successive phrase type builds on the structure of the previous one. This helps explain why syncretisms between adjacent types (AAB or ABB) are common, while non-adjacent syncretisms (ABA) are rare or unattested \citep{Bobaljik2012,Caha2009}.
+
+A similar logic is captured by the Containment Hypothesis, originally proposed by \citet{Bobaljik2012} in the domain of degree morphology. In that context, the hypothesis states that the representation of the superlative properly contains that of the comparative, which, together with the Elsewhere Condition, explains the absence of morphological ABA patterns such as good – better – goodest.
+
+While the original formulation applies specifically to adjectives, the core insight — that morphological exponence reflects structural containment — is more general. This paper adopts a version of this idea and extends it to the domain of quantity expressions. The proposal is that syncretism arises when the relevant phrases stand in a proper containment relation, i.e., when one phrase is a structural subpart of another. On this view, syncretism between pseudo-partitive and low-counting (AAB), or low- and high-counting (ABB), is expected, while syncretism between pseudo-partitive and high-counting to the exclusion of low-counting (ABA) is disfavored — unless all three contexts receive the same form (AAA).
+
+The goals of this paper are twofold. First, it argues that the hierarchy pseudo-partitive < low-counting < high-counting is syntactically grounded and reflected in the morphological behavior of Slavic quantity expressions. Second, it develops a nanosyntactic account that derives the attested patterns (AAB, ABB, ABC) and systematically excludes unattested ones, based on the interaction between lexical entries and a hierarchically ordered feature sequence.
+
+The main contributions of this paper are: (i) a containment-based hierarchy of quantity expressions in Slavic, (ii) a nanosyntactic account that derives attested syncretism patterns and excludes unattested ones, and (iii) a feature-based decomposition that integrates typological insights into a unified model of nominal structure.
+
+The structure of the paper is as follows. Section~\ref{zoha:sec:hierarchy} motivates the containment hierarchy. Section~\ref{zoha:sec:Slavicpatterns} presents cross-linguistic data from Slavic. Section~\ref{zoha:sec:nano} introduces the nanosyntactic background and develops the analysis. Section~\ref{zoha:sec:open} offers a preliminary extension of the model to case morphology, exploring how the containment-based structure of quantity expressions interacts with case realization. Section~\ref{zoha:sec:conclusion} concludes.
+
+\section{The hierarchy of quantity expressions}\label{zoha:sec:hierarchy}
+
+Before turning to the syncretism patterns themselves, we first introduce the core characteristics of the three phrase types under investigation.
+
+\subsection{Three types of quantity expressions in Slavic} \label{zoha:sec:types}
+
+This section introduces the three types of quantity expressions that form the basis of the present analysis: \textit{pseudo-partitive}, \textit{low-counting}, and \textit{high-counting} phrases. These categories differ in semantic interpretation, morphosyntactic structure, and morphological realization. We first outline their semantic and functional properties (Section~\ref{zoha:sec:types-semantics}), and then turn to their syntactic and morphological profile (Section~\ref{zoha:sec:types-morph}).
+
+\subsubsection{Semantics and classification} \label{zoha:sec:types-semantics}
+
+\textit{Pseudo-partitive phrases} denote vague, non-individuated quantities and typically consist of a measure noun followed by a bare mass-like noun (e.g., \textit{a piece of peach}, \textit{a glass of water}). These expressions lack definiteness and do not presuppose subsethood or prior discourse reference \citep{Selkirk1977,FalcoZamparelli2019}. Despite the surface similarity to canonical partitives, pseudo-partitives differ in their semantics: canonical partitives refer to subsets of contextually identifiable wholes and involve a definite internal nominal (e.g., \textit{some of the apples}), subject to constraints such as the Partitive Constraint \citep{jackendoff1977}.
+
+\textit{Counting phrases} express cardinality and individuation. They combine with numerals and refer to sets of discrete entities \citep{Bultnick2005}. Within this group, we distinguish \textit{low-counting phrases} -- typically with numerals 2–4, which behave more like adjectival modifiers of the noun -- and \textit{high-counting phrases} -- typically with numerals 5 and above, which shift towards quantificational expressions.
+
+This three-way classification is not merely semantic but correlates with morphosyntactic behavior, as shown in the next section. 
+
+Psycholinguistic research further supports the grammatical nature of the mass–count distinction: experimental studies show that number information influences the processing of both mass and count nouns, indicating that countability is represented in the grammar rather than purely in conceptual semantics \citep{fieder2017counting}. 
+
+Cross-linguistic evidence further confirms that this interaction between semantic and grammatical encoding of quantity is systematic 
+\citep{Doetjes2017}.
+
+These results converge with the containment-based account developed here: if countability is grammatically encoded, as processing evidence suggests, then the mass–count distinction should correspond to distinct structural sizes within the nominal spine, precisely as captured by the hierarchy proposed in Section~\ref{zoha:sec:contexts}.
+
+\subsubsection{Morphosyntactic and morphological profile} \label{zoha:sec:types-morph}
+
+The semantic distinctions outlined above are mirrored in the syntactic structure and morphological realization of each phrase type. This typology crucially reflects the well-established semantic distinction between mass and count interpretations: pseudo-partitive phrases correspond to mass-like expressions, lacking individuation and number, while counting phrases correspond to count-like expressions, exhibiting individuation and cardinality. Comparable correlations between individuation, grammatical number, and countability have been documented in a wide range of languages \citep{Doetjes2017}. This mass–count opposition is not only interpretive but is structurally encoded, as shown below. We illustrate this with Czech examples in the nominative context:
+
+\ea Czech (nominative context) \label{zoha:ex:phrases}
+    \ea \gll kus \textbf{[broskv-e]}\\
+    piece.\textsc{nom} peach.\textsc{f}-\textsc{gen.sg}\\
+    \glt `a piece of peach' \label{zoha:ex:aabpart1} \hfill \raisebox{2.0\baselineskip}[0pt][0pt]{(pseudo-partitive)}
+    \ex \gll dvě \textbf{[broskv-e]}\\
+    2.\textsc{nom.f} peach.\textsc{f}-\textsc{nom.pl}\\
+    \glt `two peaches' \label{zoha:ex:aablow1} \hfill \raisebox{2.0\baselineskip}[0pt][0pt]{(low-counting)}
+    \ex \gll pět \textbf{[broskv-iː]}\\
+    5.\textsc{nom} peach.\textsc{f}-\textsc{gen.pl}\\
+    \glt `five peaches' \label{zoha:ex:aabhigh1} \hfill \raisebox{2.0\baselineskip}[0pt][0pt]{(high-counting)}
+    \z
+\z
+
+\textcolor{cyan}{These examples show that the pseudo-partitive and low-counting contexts may share the same surface form /broskv-e/, while the high-counting context selects a distinct genitive plural form /broskv-iː/.}
+
+\textcolor{cyan}{It is important to note, however, that the form /broskv-e/ expresses different morphosyntactic features in the two contexts: genitive singular in (\ref{zoha:ex:aabpart1}) and nominative plural in (\ref{zoha:ex:aablow1}). This is a case of morphological syncretism, understood here as the use of a single phonological form to realize distinct morphosyntactic configurations. In other words, while /broskv-e/ is phonologically identical across the two examples, it reflects two different sets of morphosyntactic features. Throughout the paper, we treat such cases as instances of syncretism.}\footnote{As one reviewer correctly observes, the morphological alternations discussed here coincide with ordinary case patterns, such as the genitive singular -- nominative plural -- genitive plural. We acknowledge that the surface identity between the suffixes in quantity expressions and those in regular case paradigms points to a shared morphological source. Nevertheless, the argument developed here rests on the structural containment of pseudo-partitive, low-counting, and high-counting phrases. Even if the exponents involved are synchronically case markers, their systematic alignment across the three contexts still reflects the underlying hierarchy \textsc{mass} < \textsc{cl} < \textsc{quant}. In this sense, the analysis remains compatible with the view that the observed forms are ordinary case endings, while maintaining that their distribution reveals a deeper syntactic containment among the three constructions.}
+
+Syntactically, pseudo-partitive phrases behave as measure phrases: the case morphology is carried by the measure noun, e.g., \textit{kus} `piece', while the embedded noun remains in genitive singular and does not receive case from the clause. 
+
+\textcolor{magenta}{Low-counting phrases, by contrast, form a unit with the numeral and receive case as a whole. The noun typically appears in nominative plural and agrees with the verb. This form reflects nominative case assigned to the entire numeral phrase, unlike in pseudo-partitive constructions, where case is borne solely by the measure noun.}
+
+\textcolor{magenta}{In other Slavic languages, however, the same low-counting configuration surfaces with a different morphological realization.} \textcolor{cyan}{For instance, in Russian, \ref{zoha:ex:russian}, numerals 2–4 are followed by a noun in the genitive singular, not by the nominative plural. This form has often been described as a paucal form in the literature such as \citet{Franks1995} or \citet{Corbett2000}.} 
+
+\ea Russian (nominative context) \label{zoha:ex:russian}
+    \ea \gll kusok \textbf{[persik-a]}\\
+    piece.\textsc{nom} peach.\textsc{m}-\textsc{gen.sg}\\
+    \glt `a piece of peach'
+    \ex \gll dva \textbf{[persik-a]}\\
+    2.\textsc{nom.m} peach.\textsc{m}-\textsc{gen.sg}\\
+    \glt `two peaches'
+    \ex \gll pjatj \textbf{[persik-ov]}\\
+    5.\textsc{nom} peach.\textsc{m}-\textsc{gen.pl}\\
+    \glt `five peaches'
+    \z
+\z
+
+\textcolor{green}{The contrast between Czech and Russian shows that the same syntactic configuration may be realized by different case exponents. Conversely, identical surface case forms need not correspond to the same structural span. What appears as ordinary case morphology thus reflects different portions of the quantity structure rather than identical case features.}
+
+\textcolor{magenta}{High-counting phrases also form a unit with the numeral, but the noun appears in genitive plural and typically loses agreement properties, behaving more like a quantified noun phrase \citep{Franks1995,Pesetsky2013}.}
+
+These structural and morphological differences motivate the assumption that the three types of expressions correspond to increasing levels of syntactic complexity. We propose that pseudo-partitive phrases are structurally minimal, low-counting phrases build on them by adding projections related to countability, and high-counting phrases introduce an additional layer of quantificational force. This observation motivates the containment hierarchy proposed in Section~\ref{zoha:sec:syncretism}, where each phrase type corresponds to a different structural size.
+
+We return to the role of case morphology in Section~\ref{zoha:sec:open}, where we explore how case-related projections may interact with the quantity spine and help explain the morphophonological surface patterns observed across Slavic.
+
+\subsection{Syncretism and hierarchy}\label{zoha:sec:syncretism}
+
+The typology discussed in the previous section suggests that the three contexts -- pseudo-partitive, low-counting, and high-counting -- stand in a fixed hierarchical relation. In this section, we argue that the correct order is pseudo-partitive < low-counting < high-counting. This hierarchy accounts for the attested patterns of syncretism, allowing AAB and ABB, while excluding ABA.
+
+Evidence for the hierarchy comes from individual Slavic languages. The remainder of this section focuses on Czech, (\ref{zoha:ex:aab}) and (\ref{zoha:ex:aabdat}). The example (\ref{zoha:ex:aab}) repeats the forms from (\ref{zoha:ex:phrases}) introduced in Section~\ref{zoha:sec:types-morph}, now with an emphasis on their morphological distribution across contexts.
+
+\ea Czech (nominative context) \label{zoha:ex:aab}
+    \ea \gll kus \textbf{[broskv-e]}\\
+    piece.\textsc{nom} peach.\textsc{f}-\textsc{gen.sg}\\
+    \glt `a piece of peach' \label{zoha:ex:aabpart}
+    \ex \gll dvě \textbf{[broskv-e]}\\
+    2.\textsc{nom.f} peach.\textsc{f}-\textsc{nom.pl}\\
+    \glt `two peaches' \label{zoha:ex:aablow}
+    \ex \gll pět \textbf{[broskv-iː]}\\
+    5.\textsc{nom} peach.\textsc{f}-\textsc{gen.pl}\\
+    \glt `five peaches' \label{zoha:ex:aabhigh}
+    \z
+\z
+
+In (\ref{zoha:ex:aab}), we observe that the pseudo-partitive context (\ref{zoha:ex:aabpart}) and the low-counting context (\ref{zoha:ex:aablow}) both select the form /broskv-e/. In (\ref{zoha:ex:aabpart}), it expresses the genitive of singular, while in (\ref{zoha:ex:aablow}) the nominative of plural. In the high-counting context, (\ref{zoha:ex:aabhigh}), the noun selects a different form, /broskv-iː/, expressing the genitive of plural.
+
+Let us now turn to the dative context, (\ref{zoha:ex:aabdat}), showing a different pattern of syncretism.
+
+\ea Czech (dative context) \label{zoha:ex:aabdat}
+    \ea \gll kousku \textbf{[broskv-e]}\\
+    piece.\textsc{dat} peach.\textsc{f}-\textsc{gen.sg}\\
+    \glt ‘to a piece of peach’ \label{zoha:ex:aabdatpart}
+    \ex \gll dvěma \textbf{[broskv-iːm]}\\
+    2.\textsc{dat} peach.\textsc{f}-\textsc{dat.pl}\\
+    \glt ‘to two peaches’ \label{zoha:ex:aabdatlow}
+    \ex \gll pěti \textbf{[broskv-iːm]}\\
+    5.\textsc{dat} peach.\textsc{f}-\textsc{dat.pl}\\
+    \glt ‘to five peaches’ \label{zoha:ex:aabdathigh}
+    \z
+\z
+
+In (\ref{zoha:ex:aabdat}), we observe a different pattern of morphological marking that reveals a crucial asymmetry between pseudo-partitive and counting contexts. In the pseudo-partitive phrase (\ref{zoha:ex:aabdatpart}), the dative case is borne by the measure noun, while the embedded noun remains in the genitive singular. This suggests that the nominal complement is not the syntactic head of the phrase and does not participate in clause-level case assignment. In contrast, both counting contexts (\ref{zoha:ex:aabdatlow}--\ref{zoha:ex:aabdathigh}) exhibit full dative morphology on both the numeral and the noun, indicating that the numeral phrase forms a syntactic unit that is directly targeted by case assignment.
+
+The data thus point to two robust syncretism patterns: in the nominative context, (\ref{zoha:ex:aab}), the pseudo-partitive and low-counting contexts share a form; in the dative context, (\ref{zoha:ex:aabdat}), low- and high-counting contexts share a form. If syncretism is taken to reflect structural adjacency, as these examples show, both can only be accounted for if the low-counting phrase is adjacent to both pseudo-partitive and high-counting. This condition is satisfied in exactly two hierarchical configurations shown in (\ref{zoha:ex:twopatterns}).
+
+\ea Possible orderings of phrases \label{zoha:ex:twopatterns}
+    \ea pseudo-partitive < low-counting < high-counting
+    \ex  high-counting < low-counting < pseudo-partitive
+    \z
+\z
+
+Notably, these two hierarchies are structurally mirror images of each other. While they preserve the adjacency between low- and high-counting phrases, they differ in the relative ordering of all three types. In particular, the pseudo-partitive phrase is lowest in one hierarchy and highest in the other, which results in a reversal of the positions of all three elements.
+
+However, this remaining ambiguity cannot be resolved by syncretism patterns or case morphology in isolation. As the data from Czech suggest, morphological alignment across contexts reaches its limits when confronted with structures that are deeply similar in their surface realization. To determine which of these two orders is syntactically justified, we now turn to the internal composition of each phrase type.
+
+We thus assume that low-counting phrases are structurally intermediate between the other two, and in the next section, we explore whether additional syntactic diagnostics can determine the directionality of this containment.
+
+We return to the interaction between quantity structure and case in Section~\ref{zoha:sec:open}, where we propose a decomposition of case features that aligns with the containment hierarchy and helps derive the observed syncretism patterns.
+
+In the following section, we turn to a broader cross-Slavic perspective, focusing on the three most common syncretism patterns — AAB, ABB, and ABC — and showing how each maps onto this structural sequence.
+
+\subsection{Pseudo-partitive vs. counting contexts}\label{zoha:sec:contexts}
+
+As shown in (\ref{zoha:ex:twopatterns}), the empirical evidence from Czech morphology narrows the space of possible hierarchies to just two options: either pseudo-partitive < low-counting < high-counting, or its mirror image, high-counting < low-counting < pseudo-partitive. Both hierarchies are compatible with the attested patterns with adjacent syncretism, avoid predicting unattested non-adjacent syncretism, and preserve the structural adjacency between low- and high-counting contexts. But how can we determine which of the two orderings is the correct one?
+
+To move beyond surface morphology, we need to consider whether the three quantity expressions -- pseudo-partitive, low-counting, and high-counting -- differ in terms of their underlying syntactic complexity, and if so, in what way. The guiding idea here is that syncretism is only possible when one structure is properly contained within another.
+
+To illustrate this idea, consider the two logically possible configurations that satisfy the adjacency requirement discussed above. These are shown in Figures~\ref{zoha:fig:AAB} and \ref{zoha:fig:ABB}.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [[high-\\counting][[low-\\counting][[pseudo-\\partitive,roof]]]]
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Containment structure where pseudo-partitive is properly included in low- and high-counting}
+    \label{zoha:fig:AAB}
+\end{figure}
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [[pseudo-\\partitive][[low-\\counting][[high-\\counting,roof]]]]
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Containment structure where high-counting is the base of the hierarchy}
+    \label{zoha:fig:ABB}
+\end{figure}
+
+
+Figures~\ref{zoha:fig:AAB} and \ref{zoha:fig:ABB} illustrate two structurally distinct hierarchies that both maintain the required adjacency between low-counting and the other two contexts. The first configuration (Figure~\ref{zoha:fig:AAB}) treats the pseudo-partitive as the structurally smallest phrase, embedded within the low-counting phrase, which in turn is embedded within the high-counting phrase. This structure is consistent with the idea that more articulated quantity expressions build on the less articulated ones. 
+
+The second configuration (Figure~\ref{zoha:fig:ABB}) reverses the hierarchy, treating high-counting as the base and pseudo-partitive as the most complex. Under this view, pseudo-partitives would contain low- and high-counting structure, which is counterintuitive and empirically problematic.
+
+As we show below, only the first option is compatible with the theoretical assumption that syncretism reflects structural containment. Specifically, it allows pseudo-partitive and low-counting to be realized by a single morpheme, since the former is properly contained in the latter. The alternative hierarchy wrongly predicts that pseudo-partitive structure contains high-counting, which contradicts both morphological evidence and theoretical expectations. Later, in Section~\ref{zoha:sec:open}, we return to morphological evidence from case marking and show how case-based projections can reinforce the proposed containment structure.
+
+This conclusion aligns with a broader observation about the internal composition of pseudo-partitive phrases: they appear to be structurally simpler than counting expressions. One source of evidence comes from the behavior of the noun inside the measure phrase. In such constructions, the nominal element typically displays mass-like properties, even when it is lexically a count noun.
+
+\citet{chierchia1998,chierchia1998reference,allan1977} and others observe, languages like Mandarin Chinese treat all bare nouns as mass nouns, lacking grammatical number and requiring classifiers for individuation. \citet{Borer2005} extends this idea to languages with overt count/mass morphology, such as English, arguing that the count/mass distinction is not lexically encoded but structurally derived — specifically, through the presence or absence of certain functional projections.
+
+This structural contrast is illustrated by the pair in (\ref{zoha:ex:cake}). In (\ref{zoha:ex:piece}), the noun \textit{cake} appears in a pseudo-partitive structure and receives a non-count interpretation: it denotes an undivided substance and lacks number morphology. In contrast, (\ref{zoha:ex:acake}) shows the same noun in a count context, where it receives a cardinal interpretation and projects number.
+
+\ea \label{zoha:ex:cake}
+    \ea There is a piece of cake on the table. \label{zoha:ex:piece} \hfill (not projecting \#P)
+    \ex  There is a cake on the table. \label{zoha:ex:acake} \hfill (projecting \#P)
+    \z
+\z
+
+The contrast in (\ref{zoha:ex:cake}) exemplifies how syntactic structure determines whether a noun is interpreted as mass or count. These readings do not reflect lexical ambiguity but arise from the presence or absence of functional structure above the noun.
+
+According to \citet{Borer2005}, the semantic properties typically associated with countability -- such as individuation, number, and cardinality -- are not rooted in the lexical content of nouns, but are structurally derived through a series of functional projections layered above the noun phrase. In her model, each layer introduces a distinct interpretive contribution, and together they cumulatively build the structure required for full count interpretation. See Figure~\ref{zoha:fig:borer}:
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+for tree={s sep=1cm, inner sep=0, l=0}
+[\textsc{DP}[\textsc{D}][\textsc{\#P}[\textsc{\#}][\textsc{cl}$_{\textsc{max}}$[\textsc{div}][\textsc{NP}[...,roof]]]]]
+\end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{\citeposst{Borer2005} hierarchy of features}
+    \label{zoha:fig:borer}
+\end{figure}
+
+In this structure, the lowest functional projection relevant to countability is \textsc{cl}$_{\textsc{max}}$, whose head is \textsc{div}. This projection introduces the possibility of partitioning the nominal domain into discrete units. It does not itself impose a specific range or cardinality but provides the structural environment in which individuation arises. In classifier languages, this is realized overtly by classifiers.
+
+Above \textsc{cl}$_{\textsc{max}}$ is the Number Phrase (\textsc{\#P}), which introduces numerical features and licenses cardinal quantification. Finally, the Determiner Phrase (\textsc{DP}) projects above the nominal spine and introduces definiteness and discourse-related features.
+
+In what follows, we adopt the sub-\textsc{DP} structure proposed by Borer but remain agnostic about the presence and role of \textsc{DP} in Slavic languages, as it is not directly relevant for the patterns of morphological exponence discussed here.
+
+For expository clarity, we use the label \textsc{clP} for the relevant individuation projection and take \textsc{div} to be its head, following the logic of Borer’s system. In Borer’s original proposal, the relevant projection is called \textsc{Cl}$_\textsc{max}$ and its head is \textsc{div}. We do not introduce a separate \textsc{divP} layer; instead, we assume that the individuation function is fully captured within \textsc{clP}. This adjustment is terminological and does not affect the analytic content of the proposal.
+
+The layered structure just outlined offers a useful diagnostic for distinguishing among the various types of quantity expressions. In particular, it allows us to ask, for each phrase type -- such as \textit{a piece of cake} -- which functional projections are present, and which ones are missing.
+
+Pseudo-partitive phrases make use of only a proper subset of the functional architecture introduced above. The noun in these phrases is embedded under a measure noun and does not project the layers responsible for individuation and counting — namely, \textsc{clP} and \textsc{\#P}. Nevertheless, the structure permits internal division — in the sense of Borer’s \textsc{Cl}$_\textsc{max}$ — even though no individuation or cardinal interpretation takes place. This fits well with Borer’s idea that, in the absence of range assignment, the nominal remains unindividuated despite containing a potential for division.
+
+As a result, pseudo-partitive phrases can be analyzed as expressions that do not project the full structure required for individuation and counting. In Borer’s terms, they lack the projection \textsc{Cl$_{max}$} — or, under our decomposition, they fail to project \textsc{ClP}, although they may involve internal division potential. They remain structurally minimal in comparison to counting expressions, yet more articulated than bare noun phrases. These properties support the conclusion that pseudo-partitive phrases occupy the lowest articulated position in the hierarchy of quantity expressions, while still involving the initial stage of structural division.
+
+Having established that pseudo-partitive phrases are structurally minimal, we now shift attention to counting expressions. These are more articulated and build on the pseudo-partitive base by adding further structure — most notably \textsc{clP} — which supports individuation and enables cardinal interpretation.
+
+A key diagnostic for the presence of these projections comes from the contrast between mass and count nouns. As shown in (\ref{zoha:ex:mass/count}), the mass noun \textit{mud} in English cannot be quantified, while the count noun \textit{girls} can. According to \citet{Borer2005} and \citet{Caha2022}, this contrast reflects the structural presence of \textsc{clP}.
+
+\ea \textsc{mass/count} distinction \citep{Rothstein2010} \label{zoha:ex:mass/count} 
+    \ea *three muds \label{zoha:ex:muds} \hfill (not projecting \#P $\rightarrow$ a mass noun)
+    \ex  \phantom{*}three girls \label{zoha:ex:girls} \hfill (projecting \#P $\rightarrow$ a countable noun)
+    \z
+\z
+
+Additional evidence for \textsc{clP} comes from classifier languages such as Chinese. As shown in (\ref{zoha:ex:chinese}), nouns in Chinese are mass-like by default \citep{chierchia1998,chierchia1998reference}, and must be individuated via an overt classifier before they can be counted.
+
+\ea Chinese \label{zoha:ex:chinese} \citep{Li2013}
+    \ea \gll \phantom{*}*san shu\\
+    \phantom{*}3 book\\ \label{zoha:ex:chinese_asterisk}
+    \ex \gll san ben shu\\
+    \phantom{*}3 \textsc{cl} book\\
+    \glt \phantom{*}`three books'\label{zoha:ex:chinese_ok}
+    \z
+\z
+
+A structural correlation thus emerges: pseudo-partitive phrases correspond to mass-like interpretations, whereas counting expressions give rise to count readings. This difference can be traced back to their respective structural makeup. Pseudo-partitives lack the projections responsible for individuation and number, while counting expressions include at least \textsc{clP}, which introduces discrete units and enables cardinal quantification. The correlation between morphosyntactic structure and countability is supported not only by English, but also by classifier languages such as Chinese, where count readings require the overt presence of structure associated with individuation.
+
+However, the picture becomes more intricate once we turn to Slavic. As illustrated in (\ref{zoha:ex:aab2.0}), the two types of counting phrases -- low and high -- differ in their morphological realization. The low-counting form (\ref{zoha:ex:aablow2.0}) appears with the suffix /-e/, which it shares with the pseudo-partitive form in (\ref{zoha:ex:aabpart2.0}). By contrast, the high-counting form in (\ref{zoha:ex:aabhigh2.0}) appears with the suffix /-iː/. This morphological asymmetry between low and high numerals suggests that the two contexts do not form a uniform syntactic class, but rather differ in the amount of structure they project. As we will see below, this distinction turns out to be central for understanding the patterning of quantity expressions in Slavic.
+
+\ea Czech (nominative context) \label{zoha:ex:aab2.0}
+    \ea \gll kus \textbf{[broskv-e]}\\
+    piece.\textsc{nom} peach.\textsc{f}-\textsc{gen.sg}\\
+    \glt `a piece of peach' \label{zoha:ex:aabpart2.0}
+    \ex \gll dvě \textbf{[broskv-e]}\\
+    2.\textsc{nom.f} peach.\textsc{f}-\textsc{nom.pl}\\
+    \glt `two peaches' \label{zoha:ex:aablow2.0}
+    \ex \gll pět \textbf{[broskv-iː]}\\
+    5.\textsc{nom} peach.\textsc{f}-\textsc{gen.pl}\\
+    \glt `five peaches' \label{zoha:ex:aabhigh2.0}
+    \z
+\z
+
+The central question is how low- and high-counting phrases differ, and how such differences map onto the morphological patterns observed across Slavic. Morphologically, low-counting phrases (typically with numerals 2--4) may share surface forms with pseudo-partitive contexts due to syncretism, but they are structurally distinct. Unlike pseudo-partitives, low-counting phrases exhibit agreement features such as number morphology (nominative plural) and can control verbal agreement. High-counting phrases (with numerals 5 and above) differ further: they often trigger genitive plural morphology (also referred to as genitive of quantification, e.g., \citealt{franks2002}) and lose some nominal properties, behaving more like quantificational expressions.
+
+Syntactically, low-counting phrases exhibit a more articulated internal structure than pseudo-partitives, but remain less complex than high-counting expressions. They tend to preserve agreement features and nominal behavior -- for instance, they may control agreement on the verb or appear with attributive adjectives in the expected form \citep{Franks1995}. High-counting phrases, on the other hand, often fail to control agreement and behave more like quantificational expressions containing quantification elements \citep{Pesetsky2013}.
+
+Semantically, the key distinction lies in the referential properties of the two phrase types. Low-counting phrases tend to refer to small, individuated sets of discrete entities. In contrast, high-counting phrases introduce a more abstract notion of quantity. As argued by \citet{bylininanouwen2020} and \citet{kennedysyrett2020}, higher numerals like \textit{five} contribute degree-based quantification and often introduce a maximality condition: they specify the maximum cardinality of a set compatible with the assertion. This shift corresponds to a structural shift: high-counting phrases behave more like quantificational expressions and lose direct nominal reference.
+
+Taken together, these observations support the hypothesis that pseudo-partitive, low-counting, and high-counting phrases differ not only in interpretation and surface morphology, but also in their underlying syntactic composition. The hierarchy adopted here captures these structural contrasts and offers a principled explanation for the attested syncretism patterns across Slavic.
+
+Having established that pseudo-partitive, low-counting, and high-counting phrases differ in morphosyntactic complexity, we can now return to the implications of the observed syncretism patterns. Crucially, the attested configurations -- AAB, ABB, and ABC -- never show syncretism between non-adjacent positions. This strongly suggests that these three contexts form a hierarchically ordered sequence, in which each successive phrase type properly contains the previous one.
+
+The hierarchy pseudo-partitive < low-counting < high-counting can be seen as a three-step staircase: each phrase type adds a new level of morphosyntactic complexity. This stepwise buildup directly mirrors the typological findings that the count–mass contrast and degrees of quantification are represented as successive structural layers in grammar \citep{Doetjes2017}. The AAB and ABB patterns arise when a single suffix spans two adjacent steps. This containment-based perspective not only explains why some patterns occur frequently while others are systematically absent (ABA), but also provides a structural rationale for why syncretism is possible only between adjacent phrase types.
+
+The hierarchy consistent with the morphological, syntactic, and typological evidence discussed above is given in (\ref{zoha:ex:hierarchy}):
+
+\ea Final hierarchy of quantity expressions \label{zoha:ex:hierarchy} \\ pseudo-partitive < low-counting < high-counting \z
+
+In what follows, we present cross-linguistic data from Slavic that support this containment-based model. We return to the interaction between quantity structure and morphological case in Section~\ref{zoha:sec:open}, where we explore how case distinctions align with the proposed hierarchy.
+
+\section{Syncretism patterns in Slavic}\label{zoha:sec:Slavicpatterns}
+
+This section presents the most common syncretism patterns -- AAB, ABB, and ABC -- across Slavic languages, as introduced in Table~\ref{zoha:tab:patterns}.
+
+The AAB pattern, already discussed in Section~\ref{zoha:sec:hierarchy} with data from Czech (\ref{zoha:ex:aab}), illustrates a system in which pseudo-partitive and low-counting contexts share a suffix, while high-counting contexts are distinct.
+
+A different pattern is exemplified in (\ref{zoha:ex:abb}), with data from Bulgarian. Here, pseudo-partitive contexts use a singular form /praskov-a/, while both low- and high-counting phrases show a syncretic plural form /praskov-i/.
+
+\ea ABB (Native speaker) \label{zoha:ex:abb} \hfill (Bulgarian)
+    \ea \gll parche \textbf{[praskov-a]}\\
+    piece peach.\textsc{f}-\textsc{sg}\\
+    \glt `a piece of peach' \label{zoha:ex:abbpart}
+    \ex \gll dve \textbf{[praskov-i]}\\
+    2.\textsc{f} peach.\textsc{f}-\textsc{pl}\\
+    \glt `two peaches'\label{zoha:ex:abblow}
+    \ex \gll pet \textbf{[praskov-i]}\\
+    5 peach.\textsc{f}-\textsc{pl}\\
+    \glt `five peaches'\label{zoha:ex:abbhigh}
+    \z
+\z
+
+Finally, the ABC pattern is shown in Ukrainian in (\ref{zoha:ex:abc}), where all three contexts are morphologically distinct. The pseudo-partitive form /persɪk-a/ surfaces in the genitive singular, the low-counting form /persɪk-ɪ/ shows nominative plural, and the high-counting form /persɪk-iv/ appears in the genitive plural. The existence of such tripartite distinctions supports the hypothesis that each phrase type introduces an independent structural layer.
+
+\ea ABC (Native speaker) \label{zoha:ex:abc} \hfill (Ukrainian)
+    \ea \gll kusok \textbf{[persɪk-a]}\\
+    piece.\textsc{nom} peach.\textsc{m}-\textsc{gen.sg}\\
+    \glt `a piece of peach' \label{zoha:ex:abcpart}
+    \ex \gll  dva \textbf{[persɪk-ɪ]}\\
+    2.\textsc{nom.m} peach.\textsc{m}-\textsc{nom.pl}\\
+    \glt `two peaches'\label{zoha:ex:abclow}
+    \ex \gll pjatj \textbf{[persɪk-iv]}\\
+    5.\textsc{nom} peach.\textsc{m}-\textsc{gen.pl}\\
+    \glt `five peaches'\label{zoha:ex:abchigh}
+    \z
+\z
+
+These three examples represent the most widespread syncretism patterns in Slavic and provide a typological grounding for the hierarchical structure proposed in the previous section. The forms in each language demonstrate how pseudo-partitive, low-counting, and high-counting contexts align morphologically -- and how these alignments reflect structural adjacency or separation. Table~\ref{zoha:tab:datapatterns} summarizes the relevant data and highlights the three attested syncretism patterns across Czech, Bulgarian, and Ukrainian.
+
+\begin{table}
+\begin{tabularx}{0.78\textwidth}{ccccc}
+\lsptoprule
+&{Pseudo-partitive} & \multicolumn{2}{c}{Counting}\\
+{}&{}& {Low}&{High}\\
+\midrule
+Czech & \cellcolor[gray]{0.9}broskv-e & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}broskv-e} & \cellcolor[gray]{0.8}broskv-iː & AAB\\[.5ex]
+\addlinespace[1pt]
+Bulgarian & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}praskov-a} & \cellcolor[gray]{0.8}praskov-i & \cellcolor[gray]{0.8}praskov-i & ABB\\[.5ex]
+\addlinespace[1pt]
+Ukrainian & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.9}persɪk-a} & \multicolumn{1}{c!{\textcolor{white}{\vrule width 1pt}}}{\cellcolor[gray]{0.8}persɪk-ɪ} & \cellcolor[gray]{0.7}persɪk-iv & ABC\\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Patterns across Slavic languages}
+\label{zoha:tab:datapatterns}
+\end{table}
+
+It is important to emphasize that the languages presented in Table~\ref{zoha:tab:datapatterns} are not claimed to exhibit only the pattern shown. The examples from Czech, Bulgarian, and Ukrainian are selected to illustrate the three attested types of syncretism patterns (AAB, ABB, ABC), not to suggest that each language is limited to a single pattern. \textcolor{red}{In fact, within a single language, different declension classes, genders, or lexical items may instantiate different patterns. For example, masculine nouns in Czech may follow a pattern where each context (pseudo-partitive, low-counting, high-counting) receives a distinct morphological form corresponding to the ABC pattern. This fact is fully compatible with the analysis presented here: the key claim is not that any given language shows only one pattern, but that the attested syncretisms conform to a containment hierarchy, while unattested ones (e.g., ABA in most contexts) are rare or structurally disfavored.} The examples were chosen to represent the three main patterns using nouns from different genders: Czech and Bulgarian data involve feminine nouns, while the Ukrainian paradigm features a masculine noun. This variation highlights that the syncretism patterns are not tied to a specific gender or declension class, but reflect underlying structural relations.
+
+The typological distribution of morphological patterns aligns with a deeper structural division between the three phrase types. 
+
+\textcolor{lime}{Importantly, these features are not construction-specific labels but general functional projections that recur across the nominal domain, following \citet{Borer2005} and \citet{Caha2022}. }
+
+In the analysis developed here, each quantity expression is associated with a distinct feature configuration, (\ref{zoha:ex:features}):
+
+\ea \label{zoha:ex:features}
+    \ea pseudo-partitive $\rightarrow$ \textsc{mass} \label{zoha:ex:mass}
+    \ex low-counting $\rightarrow$ \textsc{cl} \label{zoha:ex:cl}
+    \ex high-counting $\rightarrow$ \textsc{quant}
+    \z
+\z
+
+Pseudo-partitive phrases instantiate the feature \textsc{mass}, reflecting their interpretation as non-individuated and non-countable \citep{Borer2005,chierchia1998,chierchia1998reference}. In contrast, both low- and high-counting phrases instantiate the feature \textsc{cl}, which introduces individuation and supports count interpretation \citep{Borer2005,Caha2022}. However, these two counting contexts diverge further in their featural specification: low-counting phrases bear  \textsc{cl} itself, as it is associated with numerals 2--4 \citep{Pesetsky2013,Franks1995}, while high-counting phrases introduce the feature \textsc{quant} standing for quantificational elements discussed by \citet{Pesetsky2013}.
+
+This contrast between \textsc{cl} and \textsc{quant} not only captures the observed syntactic and morphological differences between low- and high-counting phrases, but also reflects a broader typological pattern in the grammar of numerals. The resulting sequence in (\ref{zoha:ex:fhierarchy}) directly corresponds to the containment hierarchy proposed in the previous section and provides a unified featural explanation for the AAB, ABB, and ABC patterns attested across Slavic.
+
+\ea Hierarchy of features\label{zoha:ex:fhierarchy}\\
+    \textsc{mass} < \textsc{cl} < \textsc{quant}
+\z
+
+\textcolor{magenta}{One might argue that the observed patterns merely reflect independent case syncretism (e.g., the genitive singular and nominative plural being identical), rather than structure specific to quantity expressions. However, this view fails to account for several facts, as discussed below. While many of the morphological exponents discussed above resemble familiar case endings (e.g., genitive singular or plural), we do not assume that such forms directly lexicalize case alone. Rather, we propose that they realize spans that include gender, number, and quantity-related features such as \textsc{mass}, \textsc{cl}, and \textsc{quant}, and in languages where case is still morphologically active, possibly case as well. The surface identity between forms like Czech /broskv-e/ or Ukrainian /persɪk-a/ and genitive singular endings reflects the diachronic origin of these suffixes, but does not entail that they function synchronically as case markers in the structures under discussion.}
+
+This point becomes particularly salient in languages like Bulgarian, where nominal case morphology has been lost -- e.g., \citet{Nicolova2017} -- yet the syncretism patterns persist. In such contexts, suffixes like /-a/ and /-i/ cannot be analyzed as case markers and instead reflect structural distinctions among pseudo-partitive and counting phrases. We take this as an evidence that these suffixes lexicalize morphosyntactic spans that correspond to the hierarchy in (\ref{zoha:ex:fhierarchy}). Their distribution thus provides a window into the underlying structure of quantity expressions across Slavic.
+
+While case features are not explicitly represented in the core hierarchy developed in Sections~\ref{zoha:sec:hierarchy}--\ref{zoha:sec:Slavicpatterns}, the analysis leaves room for such projections above the quantity domain. In Section~\ref{zoha:sec:open}, we return to case morphology and sketch an extension of the model that incorporates decomposed case features in a nanosyntactic framework \citep{Caha2009}. This extension helps clarify how case morphology interacts with quantity structure in both syncretic and non-syncretic paradigms and supports the broader claim that syncretism arises through lexicalization of contiguous spans.
+
+Crucially, the fact that suffixes such as /-e/ correspond to forms like gen.sg. or nom.pl. across the paradigm does not invalidate the structural analysis proposed here. In a nanosyntactic model, the same surface form may lexicalize different spans of structure in distinct syntactic environments – here, depending on whether the underlying structure includes only \textsc{mass}, or \textsc{mass + cl}, etc. This flexibility allows us to capture systematic syncretism in quantity expressions while still being compatible with the morphological patterns of the broader nominal paradigm.
+
+Surface identity with familiar case forms – such as \textsc{gen.sg} – \textsc{nom.pl} – \textsc{gen.pl} series – does not entail that quantity expressions instantiate no additional structure. These forms also appear outside of pseudo-partitive and counting contexts, but in such cases, their syntactic environment and interpretive properties differ. Under the nanosyntactic approach, syncretism is expected when different configurations share a structural subtree – and the fact that a given exponent appears in multiple environments is not taken as evidence against structure, but rather as evidence for lexical reuse across structurally defined spans.
+
+In the following section, we introduce the nanosyntactic framework and present the full feature hierarchy required to derive the structural differences between pseudo-partitive, low-counting, and high-counting expressions.
+
+\section{Toward a nanosyntactic account and feature decomposition}\label{zoha:sec:nano}
+
+Before presenting the analysis, we briefly introduce the theoretical framework. The approach is based on Nanosyntax \citep{Starke2009,Caha2009}, a theory in which individual morphemes may lexicalize not just a single syntactic feature, but an entire phrase -- a structured bundle of features built incrementally by Merge. As the derivation proceeds, each newly built syntactic structure is compared to the lexical entries stored in the mental lexicon. If the lexicon contains a morpheme that matches this structure (or a larger one that contains it), the morpheme is inserted. If not, syntactic movement may rearrange the structure to make lexicalization possible. 
+
+This approach provides a principled account of morphological syncretism: when multiple contexts share a syntactic subtree, they may be realized by the same morpheme. In what follows, we apply this mechanism to the patterns of quantity expression introduced above, using a nanosyntactic decomposition of the relevant features.
+
+\subsection{Theoretical background}\label{zoha:sec:background}
+
+The preceding sections established a containment hierarchy of quantity expressions -- pseudo-partitive < low-counting < high-counting -- and proposed a corresponding featural decomposition involving the hierarchy \textsc{mass} < \textsc{cl} <  \textsc{quant}. To derive the observed morphological patterns in a principled way, we adopt the nanosyntactic architecture introduced above.
+
+The key assumption is that morphemes correspond to full syntactic structures – not just single features – and that lexicalization proceeds incrementally, attempting to match each structure with a stored morpheme. When no match is found, movement may be triggered to allow for lexicalization of a different subtree.
+
+Figure~\ref{zoha:fig:fseq} summarizes the full functional sequence adopted in this paper. This hierarchy provides the backbone for the lexicalization analysis that follows.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{quantP}[\textsc{quant}][\textsc{clP}[\textsc{cl}][\textsc{massP}[\textsc{mass}][\textsc{femP}[\textsc{fem}][\textsc{mascP}[\textsc{masc}][\textsc{gendP}[\textsc{gend}][\textsc{NP}[...,roof]]]]]]]]
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Functional sequence}
+    \label{zoha:fig:fseq}
+\end{figure}
+
+The structure in Figure~\ref{zoha:fig:fseq} represents the full hierarchy, also called functional sequence (fseq). The sequence is built from the bottom up, with each layer corresponding to a distinct morphosyntactic feature. 
+
+At the base of the sequence is the \textsc{NP}, the lexical core of the nominal expression. Immediately above \textsc{NP} is a layered representation of grammatical gender, beginning with a general gender or neuter projection \textsc{gend}, and further specified into masculine \textsc{masc} and feminine \textsc{fem} features. This decomposition is adopted from \citet{Caha2022}, \citet{jakobson1984}, or \citet{corbett1991}.
+
+Next in the hierarchy is the mass projection \textsc{massP}, which is structurally lowest among the quantity-related projections and is assumed to be present in all nominal expressions under the current model. As argued in Section~\ref{zoha:sec:Slavicpatterns}, this feature encodes non-individuated reference and is structurally the lowest of the quantity-related features. We treat \textsc{massP} as a distinct projection above \textsc{NP}, following \citet{chierchia1998,chierchia1998reference,Caha2022}. While \textsc{NP} provides the lexical root, \textsc{massP} introduces the non-individuated, mass-like interpretation. This separation allows the same noun to appear in both mass and count contexts, depending on whether higher projections such as \textsc{clP} or \textsc{\#P} are present.
+
+
+Above \textsc{mass} is the classifier projection \textsc{clP}, which introduces individuation and enables cardinal quantification associated with low-counting phrases involving numerals like 2--4 \citep{Franks1995,Pesetsky2013}. The presence or absence of \textsc{clP} distinguishes pseudo-partitive from counting contexts. Following \citet{Borer2005} and \citet{Caha2022}, this projection is taken to be necessary for count interpretation even in languages without overt classifiers.
+
+The final projection is \textsc{quant}, which encode distinctions within the counting domain. This feature introduces full quantificational force (quantificational elements), characteristic of high-counting expressions. As discussed earlier, this contrast accounts for the structural and morphological asymmetries between low- and high-counting contexts. Semantically, \textsc{cl} itself encodes a reference to small and individuated sets and is compatible with verbal and adjectival agreement, whereas \textsc{quant} expresses generalized quantity over non-individuated pluralities and correlates with the loss of agreement and the presence of scalar or degree-based interpretations. 
+
+Taken together, the hierarchy in Figure~\ref{zoha:fig:fseq} models the compositional buildup of morphosyntactic structure in nominal expressions. Each feature introduces a specific interpretive and morphological contribution, and their relative order is empirically supported by the Slavic data presented above.
+
+In the following section, we turn to the analysis itself. Using the theoretical tools introduced above, we develop a lexicalization account that derives the AAB, ABB, and ABC patterns from the hierarchical organization of features. The aim is to show how morphological syncretism reflects the structural containment relations among pseudo-partitive, low-counting, and high-counting phrases.
+
+\subsection{Deriving the patterns}\label{zoha:sec:deriving}
+
+Having established the structural hierarchy and the inventory of attested syncretism patterns, the next step is to show how these patterns emerge from the interaction between structure and lexicalization.
+The goal of this section is to derive the three attested configurations – AAB, ABB, and ABC – by applying the principles of nanosyntax introduced above. This derivation will allow us to explain why some patterns occur and others do not, and how variation arises across languages. The main idea is that each morphological exponent lexicalizes a contiguous portion of this sequence, and that syncretism arises when multiple environments are associated with a shared substructure. On this view, variation across languages in the surface realization of quantity expressions is reduced to differences in the shape and storage of lexical entries. The resulting system correctly derives the three attested patterns -- AAB, ABB, ABC -- while excluding unattested configurations such as ABA, and thus provides a unified explanation for the observed morphological variation.
+
+To illustrate how syncretism patterns emerge from the lexicalization of hierarchically ordered features, we first present an abstract visualization of the three core patterns using lexicalization tables. These tables representat how different morphemes (roots and suffixes) lexicalize contiguous chunks of a syntactic functional sequence (fseq).
+
+Table~\ref{zoha:tab:lexAAB} illustrates the lexicalization structure underlying the AAB pattern, exemplified earlier with Czech data. Each row corresponds to one of the three quantity contexts: pseudo-partitive, low-counting, and high-counting. The columns represent individual features from the functional sequence, arranged from the lexical root (\textsc{NP}) on the left to the highest quantity-related feature (\textsc{quant}) on the right. Shaded cells indicate which portion of the hierarchy is lexicalized by a given morphological exponent.
+
+\begin{table}
+\begin{tabularx}{0.75\textwidth}{cccccccc}
+\lsptoprule
+\textsc{NP}&{\textsc{gend}} & {\textsc{masc}} & {\textsc{fem}} & {\textsc{mass}} & {\textsc{cl}} & {\textsc{quant}}\\
+\midrule
+\multicolumn{2}{l}{\cellcolor[gray]{0.9}broskv} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}}  & {} & {} & {} & {`peach'}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}-e} & {} & {} & {\textsc{p-part}}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}-e} & {} & {\textsc{low}} \\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-iː} & {\textsc{high}} \\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Lexicalization table of AAB}
+\label{zoha:tab:lexAAB}
+\end{table}
+
+The lexical root /broskv/ ‘peach’ lexicalizes a structure that reaches up to \textsc{fem}, as it is feminine. In the pseudo-partitive and low-counting rows, the suffix /-e/ is able to lexicalize a structure that begins at \textsc{fem} and terminates at \textsc{mass} for the pseudo-partitive phrases and a structure beginning at \textsc{fem} and ending at \textsc{cl} for low-counting phrases, resulting in syncretism between these two contexts. The beginning in \textsc{fem} ensures that the suffix appears with feminine nouns. In the high-counting context, the structure grows further, up to \textsc{quant}, and is lexicalized by the suffix /-iː/.
+
+This pattern reflects the containment relations discussed earlier: the structure lexicalized by /-e/ is properly included within the structure lexicalized in the high-counting context. As shown in the table, the morphological material that appears in the lower contexts also forms a subset of the form used in the high-counting row.
+
+The relevant lexical entries are given in Figures~\ref{zoha:fig:broskv} and \ref{zoha:fig:czi}, where each figure represents the structure lexicalized by the corresponding exponent.
+
+Figure~\ref{zoha:fig:broskv} shows the lexical entry for the root /broskv/, which spans up to \textsc{fem}.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\phantom{a}[\textsc{mascP}[\textsc{masc}][\textsc{gendP}[\textsc{gend}][\textsc{NP}[...,roof]]]][\textsc{femP}[\textsc{fem}][,phantom]]]\draw (.east) node[right]{$\Leftrightarrow$ /broskv/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of /broskv/}
+    \label{zoha:fig:broskv}
+\end{figure}
+
+Figure~\ref{zoha:fig:czi} provides the lexical entry for the suffixes /-e/ and /-iː/. The suffix /-e/ lexicalizes the structure from \textsc{fem} up to \textsc{cl}. The lower boundary in \textsc{fem} ensures compatibility with feminine nouns. Since the structure lexicalized by /-e/ is contained in both the pseudo-partitive and low-counting contexts, the suffix appears in both environments. However, it spans a different portion of the hierarchy in each case: in the pseudo-partitive context, it lexicalizes only up to \textsc{mass}, whereas in the low-counting context, it reaches all the way up to \textsc{cl}. The result is a syncretic pattern of the AAB type. As seen from the figure, the suffix /-e/ is contained within the suffix /-iː/ which spans from \textsc{fem} up to \textsc{quant}.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{quantP}[\textsc{quant}][\textsc{clP},name=clp[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{femP}[\textsc{fem}][,phantom]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-iː/};
+    \draw (clp.east) node[right]{$\Leftrightarrow$ /-e/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entries of the suffixes /-e/, and /-iː/}
+    \label{zoha:fig:czi}
+\end{figure}
+
+Having established the derivation of the AAB pattern, we now turn to the ABB pattern, exemplified earlier with Bulgarian data. In this configuration, the pseudo-partitive context is morphologically distinct, while the low- and high-counting contexts share the same suffix. This pattern reflects a different lexicalization strategy: the exponent that realizes the counting structure spans a larger portion of the functional sequence, covering \textsc{quant}. The resulting syncretism between low- and high-counting phrases arises from their shared substructure, while the pseudo-partitive phrase remains structurally and morphologically separate.
+
+Table~\ref{zoha:tab:lexABB} illustrates the lexicalization structure of the ABB pattern. As before, each row represents one of the three quantity contexts: pseudo-partitive, low-counting, and high-counting. Columns correspond to individual features from the functional sequence, ranging from the lexical root (\textsc{NP}) to the highest feature (\textsc{quant}). Shaded cells indicate which features are lexicalized by the given morphological exponent; darker shading marks broader spans.
+
+\begin{table}
+\begin{tabularx}{0.75\textwidth}{ccccccccc}
+\lsptoprule
+\textsc{NP}&{\textsc{gend}} & {\textsc{masc}} & {\textsc{fem}} & {\textsc{mass}} & {\textsc{cl}} & {\textsc{quant}}\\
+\midrule
+\multicolumn{2}{l}{\cellcolor[gray]{0.9}praskov} & {\cellcolor[gray]{0.9}}& {\cellcolor[gray]{0.9}} & {} & {} & {} &{`peach'}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} &{\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}-a} & {} & {} & {\textsc{p-part}}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-i} & {} & {\textsc{low}} \\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-i} & {\textsc{high}} \\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Lexicalization table of ABB}
+\label{zoha:tab:lexABB}
+\end{table}
+
+The root /praskov/ ‘peach’ lexicalizes the structure up to \textsc{fem}. In the pseudo-partitive row, the suffix /-a/ lexicalizes a span from \textsc{fem} up to \textsc{mass} as it is a feminine suffix, producing a form that contrasts morphologically with the counting contexts.
+
+In contrast, both the low- and high-counting rows are lexicalized by the feminine plural suffix /-i/, which spans a larger portion of the feature sequence, starting again in \textsc{fem} up to \textsc{cl}, and in the high-counting row, even \textsc{quant}. The use of the same morphological exponent in both counting contexts creates a syncretism between low- and high-counting, while the pseudo-partitive remains morphologically distinct.
+
+This pattern reflects a containment relation between low- and high-counting structures, supporting the idea that high-counting phrases properly contain low-counting ones. At the same time, the morphological contrast with the pseudo-partitive supports its structural separation from the counting domain.
+
+Figure~\ref{zoha:fig:praskov} presents the lexical entry of the root /praskov/, which lexicalizes the structure up to the feature \textsc{fem}, including gender features \textsc{gend}, and \textsc{masc}. As in the AAB pattern, the nominal root is associated with the lower portion of the functional sequence and does not contribute to the morphological distinctions among quantity contexts.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\phantom{a}[\textsc{mascP}[\textsc{masc}][\textsc{gendP}[\textsc{gend}][\textsc{NP}[...,roof]]]][\textsc{femP}[\textsc{fem}][,phantom]]]\draw (.east) node[right]{$\Leftrightarrow$ /praskov/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of /praskov/}
+    \label{zoha:fig:praskov}
+\end{figure}
+
+Figure~\ref{zoha:fig:i} displays the lexical entries of the two relevant suffixes. The suffix /-a/ lexicalizes a structure reaching up to \textsc{massP}, thereby accounting for its occurrence in the pseudo-partitive context. The counting suffix /-i/, on the other hand, lexicalizes a much larger portion of the functional sequence, extending all the way from \textsc{fem} up to \textsc{quant}. This broad coverage makes it compatible with both low- and high-counting structures, which explains the syncretism observed in the ABB pattern.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{quantP}[\textsc{quant}][\textsc{clP}[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{femP}[\textsc{fem}][,phantom]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-i/};
+    \draw (massp.east) node[right]{$\Leftrightarrow$ /-a/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entries of the suffixes /-a/, and /-i/}
+    \label{zoha:fig:i}
+\end{figure}
+
+It is important to emphasize that the AAB and ABB patterns have identical structural shape, as seen in Figures \ref{zoha:fig:broskv}, \ref{zoha:fig:czi}, \ref{zoha:fig:praskov}, and \ref{zoha:fig:i}. The difference is, which features are contained within each morpheme. While the suffix /-e/ in Czech spans up to \textsc{clP}, the suffix /-a/ in Bulgarian spans only up to \textsc{massP}. 
+
+The final pattern to consider is ABC, which shows the greatest morphological differentiation among the three.
+
+Unlike the previous two, this configuration features three distinct exponents, one for each quantity context.
+
+It serves as a test case for the proposal: if each phrase type corresponds to a distinct structural size, we expect that no single morpheme will be able to lexicalize more than one of them.
+
+The ABC pattern thus provides a clear morphological reflex of the full containment hierarchy.
+
+As exemplified earlier with Ukrainian data, this configuration requires three separate lexical entries, each of which spans a different portion of the functional sequence.
+
+The resulting lack of syncretism illustrates the maximal morphological contrast that arises when all three contexts are structurally distinct.
+
+Table~\ref{zoha:tab:lexABC} presents the lexicalization structure of the ABC pattern, exemplified earlier with Ukrainian data. As in the previous tables, each row represents one of the three quantity contexts, and each column corresponds to a feature from the functional sequence ranging from \textsc{NP} to \textsc{quant}. The morphological forms are aligned with the portions of the hierarchy they lexicalize, with shading indicating the span covered by each exponent; black cells mark unused or omitted features, i.e., \textsc{fem}.
+
+\begin{table}
+\begin{tabularx}{0.75\textwidth}{cccccccc}
+\lsptoprule
+\textsc{NP}&{\textsc{gend}} & {\textsc{masc}} & {\textsc{fem}} & {\textsc{mass}} & {\textsc{cl}} & {\textsc{quant}}\\
+\midrule
+\multicolumn{2}{l}{\cellcolor[gray]{0.9}persɪk} & {\cellcolor[gray]{0.9}} & {\cellcolor{black}} & {} & {} & {} & {`peach'}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.8}} & {\cellcolor{black}} & {\cellcolor[gray]{0.8}-a} & {} & {} & {\textsc{p-part}}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor{black}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-ɪ} & {} & {\textsc{low}} \\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.6}} & {\cellcolor{black}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}-iv} & {\textsc{high}} \\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Lexicalization table of ABC}
+\label{zoha:tab:lexABC}
+\end{table}
+
+The root /persɪk/ lexicalizes up to \textsc{masc}, and since the noun is masculine, the projection \textsc{fem} remains unrealized (black cells). Each quantity context is realized by a distinct morphological suffix, yielding a three-way contrast.
+
+The pseudo-partitive form /-a/ lexicalizes from \textsc{masc} up to \textsc{mass}, encoding the non-individuated nature of the structure. The low-counting form /-ɪ/ spans a broader portion, lexicalizing the features up to \textsc{cl} and capturing the individuated character of low numerals. Finally, the high-counting form /-iv/ spans the entire feature sequence up to \textsc{quant}, corresponding to the presence of full quantificational force. All suffixes begin in \textsc{masc} as all of them are masculine suffixes.
+
+Unlike the AAB and ABB patterns, the ABC pattern shows no syncretism across the three contexts. Each phrase type receives a dedicated exponent, reflecting the full decomposition of the underlying hierarchy into three morphologically distinct zones. 
+
+Figure~\ref{zoha:fig:banán} shows the lexical entry of the root /persɪk/, which lexicalizes the structure up to \textsc{masc}, leaving the feminine projection unrealized. As in the previous patterns, the root covers only the lowest portion of the functional sequence and remains constant across all three quantity contexts.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\phantom{a}[\textsc{gendP}[\textsc{gend}][\textsc{NP}[...,roof]]][\textsc{mascP}[\textsc{masc}][,phantom]]]\draw (.east) node[right]{$\Leftrightarrow$ /persɪk/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of /persɪk/}
+    \label{zoha:fig:banán}
+\end{figure}
+
+Figure~\ref{zoha:fig:abcsuffixes} provides the lexical entries of the three distinct suffixes that realize the pseudo-partitive, low-counting, and high-counting structures in the ABC pattern. The suffix /-a/ lexicalizes a span beginning at \textsc{masc} and ending at \textsc{mass}, making it compatible with the pseudo-partitive context. The suffix /-ɪ/ spans up to \textsc{cl}, corresponding to the structural height of low-counting phrases. Finally, the suffix /-iv/ reaches all the way to \textsc{quant}, and is thus uniquely compatible with high-counting contexts.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{quantP}[\textsc{quant}][\textsc{clP},name=clp[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{mascP}[\textsc{masc}][,phantom]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-iv/};
+    \draw (massp.east) node[right]{$\Leftrightarrow$ /-a/};
+    \draw (clp.east) node[right]{$\Leftrightarrow$ /-ɪ/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of the suffixes /-a/, /-ɪ/, and /-iv/}
+    \label{zoha:fig:abcsuffixes}
+\end{figure}
+
+Taken together, the three lexicalization patterns differ in how morphological exponents align with the feature sequence introduced in Section~\ref{zoha:sec:nano}, yet they share the same structural architecture: each respects a single containment hierarchy, and syncretism arises only where one structure is properly contained in another. The cross-linguistic differences therefore follow from the inventory of lexical entries rather than from divergent syntax. Modeling these patterns within a unified nanosyntactic system yields a principled account of syncretism that captures both variation and restriction. In the final section, we summarize the core findings and briefly reflect on their implications for the theory of nominal structure and morphological realization.
+
+In the next section, we outline a tentative extension that integrates case morphology into the same architecture. Building on the hierarchy above, we suggest that decomposed case projections layer above the quantity spine and can be incorporated into the nanosyntactic model without additional machinery. While preliminary, this extension aligns with established nanosyntactic principles and offers a promising route to modeling the interaction between case and quantity in a single system.
+
+\section{Open ends: Towards a case decomposition}\label{zoha:sec:open}
+
+While the main focus of this paper has been on syncretism patterns driven by the containment hierarchy of quantity expressions, case morphology — though largely set aside — offers an important source of additional structure. In what follows, we tentatively sketch how a nanosyntactic analysis of case can be layered on top of the feature spine developed in previous sections. This proposal builds on the decompositional approach to case articulated in \citet{Caha2009}, where case categories are not atomic but internally structured, consisting of ordered feature bundles projected in a fixed hierarchy.\footnote{Independent evidence for such structural layering between case and quantity comes from Inari Sami. As shown by \citet{NelsonToivonen2000}, numerals 2--6 assign accusative case while 7 and higher assign partitive. This alternation cannot be reduced to general case syncretism but reflects a hierarchy internal to the numeral domain itself. 
+
+The Inari Sami pattern thus offers cross-linguistic support for linking case morphology to the internal structure of quantity expressions.}
+
+Caha's central claim is that morphological cases such as nominative, accusative, genitive, etc., correspond to increasingly complex syntactic structures, where each higher case contains the structure of all cases below it. The Czech hierarchy, for instance, is represented as a sequence of functional projections such as [\textsc{k1}], [\textsc{k2}], [\textsc{k3}], etc., layered above the nominal spine, see Figure~\ref{zoha:fig:casehierarchy}.\footnote{Preliminary versions of the case hierarchy can already be traced in earlier work, e.g. \citet{Blake1994}, \citet{johnston1996systematic} or \citet{plank1991paradigms}.}  
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{k6P},name=k6p[\textsc{k6}][\textsc{k5P},name=k5p[\textsc{k5}][\textsc{k4P},name=k4p[\textsc{k4}][\textsc{k3P},name=k3p[\textsc{k3}][\textsc{k2P},name=k2p[\textsc{k2}][\textsc{k1P},name=k1p[\textsc{k1}][,phantom]]]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /comitative/};
+    \draw (k1p.east) node[right]{$\Leftrightarrow$ /nominative/};
+    \draw (k2p.east) node[right]{$\Leftrightarrow$ /accusative/};
+    \draw (k3p.east) node[right]{$\Leftrightarrow$ /genitive/};
+    \draw (k4p.east) node[right]{$\Leftrightarrow$ /dative/};
+    \draw (k5p.east) node[right]{$\Leftrightarrow$ /instrumental/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{\citeposst{Caha2009} case hierarchy}
+    \label{zoha:fig:casehierarchy}
+\end{figure}
+
+What makes this relevant for the present proposal is that the containment hierarchy of quantity expressions (\textsc{mass} < \textsc{cl} < \textsc{quant}) naturally interacts with the case domain: depending on the structural size of the nominal phrase, different portions of the case spine may be available for lexicalization. For instance, if pseudo-partitive phrases lack the projections associated with individuation and quantification, they may also lack the structural height required for case to be assigned \citep{Caha2022}. In contrast, low-counting and high-counting phrases — being structurally larger — may extend into the case domain and license partial or full case realization.
+
+This section explores this idea by adding decomposed case features on top of the quantity spine and examining how they interact with the morphological patterns discussed earlier. The analysis remains tentative, but it shows that a feature-based approach to nominal structure can be extended into the case domain in a principled way. The next subsection turns to the lexicalization tables and syntactic structures for Czech, Bulgarian, and Ukrainian, illustrating how case may be integrated into the nanosyntactic account of quantity expressions.
+
+\subsection{How does the case interact with the analysis?}
+
+Having introduced the theoretical motivation for integrating decomposed case features into the structure of nominal phrases, we now turn to the empirical consequences of this proposal. This subsection examines how case interacts with the containment hierarchy of quantity expressions in a range of Slavic languages, focusing on the three-way distinction between pseudo-partitive, low-counting, and high-counting constructions.
+
+The core idea is that case realization is sensitive to structural height. In the framework assumed here, only structures that reach high enough — i.e., those that include projections such as \textsc{cl} or \textsc{quant} — can be targeted by case assignment. In contrast, pseudo-partitive phrases, which terminate at  the \textsc{mass} projection, lack the necessary structure to host case features. This means that forms like \textit{broskve} from Czech, \textit{praskova} from Bulgarian or \textit{persɪka} from Ukrainian in pseudo-partitive contexts are not genitive in a syntactic sense: they lexicalize gender and \textsc{mass}, but no case projections. This assumption is supported by \citet{Caha2022}, who argues that mass nouns are structurally too small to receive case, even if their surface morphology resembles genitive forms.
+
+The data below — presented in lexicalization tables and corresponding syntactic trees — illustrate how the same nominal root can combine with progressively larger structures across the three contexts. These differences in structural size are reflected in the lexicalization domain of each suffix. In particular, we show that:
+
+\begin{itemize}
+    \item pseudo-partitive suffixes lexicalize only the lower domain (up to \textsc{mass}),
+    \item low-counting suffixes lexicalize a structure that includes \textsc{cl} and at least one case projection (typically \textsc{k1}),
+    \item high-counting suffixes span the entire hierarchy, including \textsc{quant} and multiple case projections (\textsc{k1--k3}).
+\end{itemize}
+
+We begin with the AAB pattern from Czech.
+
+Table~\ref{zoha:tab:lexAABcase} presents the lexicalization table for Czech, showing three distinct realizations of the noun stem \textit{broskv-} ‘peach’ across pseudo-partitive, low-counting, and high-counting contexts. The morphological pattern is AAB: both the pseudo-partitive and low-counting contexts use the suffix /-e/, while the high-counting form introduces a distinct exponent /-iː/.
+
+\begin{table}
+\begin{tabularx}{0.95\textwidth}{ccccccccccc}
+\lsptoprule
+\textsc{NP}&{\textsc{gend}} & {\textsc{masc}} & {\textsc{fem}} & {\textsc{mass}} & {\textsc{cl}} & {\textsc{quant}} & {\textsc{K1}} & {\textsc{K2}} & {\textsc{K3}}\\
+\midrule
+\multicolumn{2}{l}{\cellcolor[gray]{0.9}broskv} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}}  & {} & {} & {} & {} & {} & {} & {`peach'}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}-e} & {} & {} & {} & {} & {} & {\textsc{p-part}}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}} & {\cellcolor{black}} & {\cellcolor[gray]{0.8}-e} & {} & {} & {\textsc{low}} \\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-iː} & {\textsc{high}} \\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Lexicalization table of AAB}
+\label{zoha:tab:lexAABcase}
+\end{table}
+
+Now, however, the structure of /-e/ begins in \textsc{fem} and ends in \textsc{mass} for pseudo-partitive and in \textsc{k1} skipping \textsc{quant} for low-counting contexts. For high-counting phrases, the all features are lexicalized.
+
+The syntactic structure corresponding to the root \textit{broskv-} is shown in Figure~\ref{zoha:fig:broskvcase}. It lexicalizes the lower portion of the nominal spine, i.e., gender features. This root combines with different suffixes depending on the structural height of the extended projection.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\phantom{a}[\textsc{mascP}[\textsc{masc}][\textsc{gendP}[\textsc{gend}][\textsc{NP}[...,roof]]]][\textsc{femP}[\textsc{fem}][,phantom]]]\draw (.east) node[right]{$\Leftrightarrow$ /broskv/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of /broskv/}
+    \label{zoha:fig:broskvcase}
+\end{figure}
+
+In the pseudo-partitive phrase, the suffix /-e/ -- Figure~\ref{zoha:fig:czecase} -- lexicalizes a span ending in \textsc{mass}, with no case features present. Under the assumptions developed above, this follows from the fact that pseudo-partitive phrases are structurally small: they do not include \textsc{cl}, \textsc{quant}, or any of the case projections (\textsc{K1--K3}). As such, there is simply no syntactic material for case morphology to lexicalize. Despite surface similarity to the genitive form, the suffix /-e/ here does not lexicalize case.
+
+In contrast, the low-counting phrase also uses the suffix /-e/, but in this context the suffix lexicalizes a larger structure: it spans across \textsc{cl} and includes \textsc{K1}, as shown in Figure~\ref{zoha:fig:czecase}. This is a case of contextual allomorphy: the same exponent can lexicalize different spans, depending on the size of the structure. The reuse of /-e/ is permitted because both spans are contiguous sequences of features.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{k1P}[\textsc{k1}][\textsc{clP},name=clp[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{femP}[\textsc{fem}][,phantom]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-e/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entries of the suffix /-e/}
+    \label{zoha:fig:czecase}
+\end{figure}
+
+Finally, the high-counting phrase introduces a new suffix /-iː/ -- Figure~\ref{zoha:fig:czicase} -- which lexicalizes a larger span, including \textsc{quant}, as well as three case projections -- \textsc{K1--K3} -- representing genitive. This exponent is morphologically distinct, reflecting the increased complexity and height of the syntactic structure it lexicalizes.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{k3P}[\textsc{k3}][\textsc{k2P}[\textsc{k2}][\textsc{k1p}[\textsc{k1}][\textsc{quantP}[\textsc{quant}][\textsc{clP},name=clp[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{femP}[\textsc{fem}][,phantom]]]]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-iː/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entries of the suffix /-iː/}
+    \label{zoha:fig:czicase}
+\end{figure}
+
+The AAB pattern thus reveals a principled interaction between structural containment and case realization. \textcolor{cyan}{Case morphology is absent from pseudo-partitive phrases due to lack of sufficient structure, partially present in low-counting phrases, and fully realized in high-counting ones — tracking the size of the nominal projection.}
+
+We now turn to the ABB pattern, exemplified by Bulgarian. As shown in Table~\ref{zoha:tab:lexABBcase}, the stem \textit{praskov-} ‘peach’ appears with three forms across the relevant contexts. The pseudo-partitive context uses the suffix /-a/, while both low- and high-counting contexts use the shared suffix /-i/, producing an ABB pattern.
+
+\begin{table}
+\begin{tabularx}{0.95\textwidth}{ccccccccccc}
+\lsptoprule
+\textsc{NP}&{\textsc{gend}} & {\textsc{masc}} & {\textsc{fem}} & {\textsc{mass}} & {\textsc{cl}} & {\textsc{quant}} & {\textsc{K1}} & {\textsc{K2}} & {\textsc{K3}}\\
+\midrule
+\multicolumn{2}{l}{\cellcolor[gray]{0.9}praskov} & {\cellcolor[gray]{0.9}}& {\cellcolor[gray]{0.9}} & {} & {} & {} & {} & {} & {} & {`peach'}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} &{\cellcolor[gray]{0.8}} & {\cellcolor[gray]{0.8}-a} & {} & {} & {} & {} & {} & {\textsc{p-part}}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-i} & {} & {} & {} & {} & {\textsc{low}} \\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}-i} & {} & {} & {} & {\textsc{high}} \\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Lexicalization table of ABB}
+\label{zoha:tab:lexABBcase}
+\end{table}
+
+Unlike Czech, however, Bulgarian does not show overt morphological case. None of the contexts include visible case morphology. Following \citet{Caha2009}, we take the absence of case exponents in Bulgarian to reflect a lack of lexicalization, not necessarily a lack of syntactic structure. That is, even if the projections \textsc{K1--K3} are present in syntax, they are not realized morphologically. The shared use of /-i/ in both counting contexts reflects a lexical item that spans the quantity domain, possibly including null case features.
+
+The ABB pattern thus supports the broader analysis: pseudo-partitive forms remain low and lack case, while counting phrases span higher projections. The difference in Bulgarian is that the morphological case is absent altogether.
+
+Crucially, this analysis allows us to maintain the same structural containment relations as proposed in the previous section: the ABB pattern remains unchanged, with the only difference being that Bulgarian does not lexicalize the case domain. This makes it possible to compare case-rich and case-poor languages within the same representational framework.
+
+We now turn to the ABC pattern, exemplified by Ukrainian. This paradigm provides the clearest morphological evidence for the proposed containment hierarchy, as each configuration — pseudo-partitive, low-counting, and high-counting — is realized by a distinct suffix.
+
+Table~\ref{zoha:tab:lexABCcase} shows the three-way distinction using the root \textit{persɪk-} ‘peach’. The pseudo-partitive form ends in /-a/, the low-counting form in /-ɪ/, and the high-counting form in /-iv/. Each of these suffixes lexicalizes a progressively larger structural domain.
+
+\begin{table}
+\begin{tabularx}{0.95\textwidth}{ccccccccccc}
+\lsptoprule
+\textsc{NP}&{\textsc{gend}} & {\textsc{masc}} & {\textsc{fem}} & {\textsc{mass}} & {\textsc{cl}} & {\textsc{quant}} & {\textsc{K1}} & {\textsc{K2}} & {\textsc{K3}}\\
+\midrule
+\multicolumn{2}{l}{\cellcolor[gray]{0.9}persɪk} & {\cellcolor[gray]{0.9}} & {\cellcolor{black}} & {} & {} & {} & {} & {} & {} & {`peach'}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.8}} & {\cellcolor{black}} & {\cellcolor[gray]{0.8}-a} & {} & {} & {} & {} & {} & {\textsc{p-part}}\\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.7}} & {\cellcolor{black}} & {\cellcolor[gray]{0.7}} & {\cellcolor[gray]{0.7}} & {\cellcolor{black}} & {\cellcolor[gray]{0.7}-ɪ} & {} & {} & {\textsc{low}} \\[.5ex]
+\cellcolor[gray]{0.9} & {\cellcolor[gray]{0.9}} & {\cellcolor[gray]{0.6}} & {\cellcolor{black}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}} & {\cellcolor[gray]{0.6}-iv} & {\textsc{high}} \\[.5ex]
+\lspbottomrule
+\end{tabularx}
+\caption{Lexicalization table of ABC}
+\label{zoha:tab:lexABCcase}
+\end{table}
+
+The tree in Figure~\ref{zoha:fig:banáncase} shows that the root is inserted low, below gender features. The suffix /-a/ (Figure~\ref{zoha:fig:abcsuffixescase}) lexicalizes a span up to \textsc{mass}, stopping short of the classifier layer. As with the previous patterns, this reinforces the idea that pseudo-partitives terminate low and do not project into the case domain.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\phantom{a}[\textsc{gendP}[\textsc{gend}][\textsc{NP}[...,roof]]][\textsc{mascP}[\textsc{masc}][,phantom]]]\draw (.east) node[right]{$\Leftrightarrow$ /persɪk/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of /persɪk/}
+    \label{zoha:fig:banáncase}
+\end{figure}
+
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{k1P}[\textsc{k1}][\textsc{clP},name=clp[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{mascP}[\textsc{masc}][,phantom]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-ɪ/};
+    \draw (massp.east) node[right]{$\Leftrightarrow$ /-a/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of the suffixes /-a/, and /-ɪ/}
+    \label{zoha:fig:abcsuffixescase}
+\end{figure}
+
+The suffix /-ɪ/, used in the low-counting context, lexicalizes a structure that includes \textsc{cl} and \textsc{K1}, mirroring the structure proposed for Czech /-e/. Importantly, Ukrainian overtly marks the case layer, so this suffix can be taken to realize the beginning of the case spine, in addition to the counting features.
+
+Finally, the high-counting form /-iv/ (Figure~\ref{zoha:fig:abcivcase}) spans the full structure, including \textsc{quant} and all three case projections \textsc{K1--K3}. This form thus lexicalizes the maximal extent of the nominal spine assumed here, with the suffix transparently encoding both counting and case-related features.
+
+\begin{figure}[ht]
+% the [ht] option means that you prefer the placement of the figure HERE (=h) and if HERE is not possible, you prefer the TOP (=t) of a page
+% \centering
+    \begin{forest}
+    for tree={s sep=1cm, inner sep=0, l=0}
+    [\textsc{k3P}[\textsc{k3}][\textsc{k2P}[\textsc{k2}][\textsc{k1P}[\textsc{k1}][\textsc{quantP}[\textsc{quant}][\textsc{clP},name=clp[\textsc{cl}][\textsc{massP},name=massp[\textsc{mass}][\textsc{mascP}[\textsc{masc}][,phantom]]]]]]]]\draw (.east) node[right]{$\Leftrightarrow$ /-iv/};
+    \end{forest}
+    \vspace{3ex} % extra vspace is added here because the arrow goes too deep to the caption; avoid such manual tweaking as much as possible; here it's necessary
+    \caption{Lexical entry of the suffix /-iv/}
+    \label{zoha:fig:abcivcase}
+\end{figure}
+
+The ABC pattern is therefore highly compatible with the assumptions of the nanosyntactic analysis: each suffix corresponds to a distinct spell-out domain, determined by structural size. Moreover, the fact that Ukrainian preserves distinct morphology for each configuration provides particularly clear support for decompositional models of both quantity and case.
+
+\section{Conclusion}\label{zoha:sec:conclusion}
+
+
+We have seen that the AAB, ABB, and ABC patterns can be accounted for under this structural view. Each corresponds to a different alignment of lexical entries with the functional sequence: AAB arises when a single exponent spans the structure shared by the pseudo-partitive and low-counting contexts; ABB when the same is true for the low- and high-counting contexts; and ABC when each context is realized by a distinct exponent.
+
+The analysis was framed within the nanosyntactic approach, and we showed how the observed variation in morphological realization arises from the way individual lexical items map onto the underlying structure.
+
+The main conclusion is that morphological paradigms – and specifically patterns of syncretism – offer direct evidence for syntactic containment relations among quantity expressions, supporting a richly articulated nominal structure. In particular, syncretism patterns reveal which configurations are structurally possible and which are not. The patterns discussed here offer strong support for a containment-based organization of quantity expressions and for the nanosyntactic mechanisms that allow us to capture it.
+
+
+A natural next step is to explore the interaction between quantity structure and case morphology. In particular, case systems -- especially when decomposed into hierarchically ordered features as proposed in \citet{Caha2009} -- may offer additional diagnostics for distinguishing between the three phrase types. Understanding how case exponents align with the internal structure of quantity expressions could shed further light on the architecture of the nominal domain, both within and beyond Slavic. Beyond Slavic, similar hierarchically conditioned alternations, as in Inari Sami \citep{NelsonToivonen2000}, 
+support the view that quantity-related syncretism reflects structural containment rather than case morphology.
+
+\sloppy
+\printbibliography[heading=subbibliography,notkeyword=this]
+\end{document}
